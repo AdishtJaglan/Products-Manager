@@ -2,11 +2,13 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const methodOverride = require("method-override");
+require('dotenv').config();
+const dbHost = process.env.DB_HOST;
 const mongoose = require("mongoose");
 
 const Product = require("./models/product");
 
-mongoose.connect("mongodb://127.0.0.1:27017/demoApp")
+mongoose.connect(`mongodb://127.0.0.1:27017/${dbHost}`)
     .then(() => {
         console.log("Database connected!");
     })
