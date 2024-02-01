@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+</head>
+
+<body>
+    <h1>Edit Product</h1>
+
+    <form action="/products/<%= findProduct._id %>?_method=PUT" method="POST">
+        <label for="name">Enter Product:</label>
+        <input type="text" name="name" id="name" placeholder="Enter Product" value="<%= findProduct.name %>">
+        <br>
+        <label for="price">Enter Price:</label>
+        <input type="number" name="price" id="price" placeholder="Enter Price" value="<%= findProduct.price %>">
+        <br>
+        <label for="category">Choose Category:</label>
+        <select name="category" id="category">
+            <% for(let c of categories){ %>
+                <option value="<%= c %>" <%=findProduct.category===c ? 'selected' : '' %>>
+                    <%= c %>
+                </option>
+            <% } %>
+        </select>
+        <br>
+        <button>Edit</button>
+    </form>
+
+    <a href="/products/<%= findProduct._id %>"><b>Cancel</b></a>
+    
+</body>
+
+</html>
