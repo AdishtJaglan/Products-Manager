@@ -34,11 +34,11 @@ app.get("/products", async (req, res) => {
     if (category) {
         const product = await Product.find({ category });
 
-        res.render("products/index", { product, category });
+        res.render("products/index", { product, category, title: "Products" });
     } else {
         const product = await Product.find({});
 
-        res.render("products/index", { product, category: "Our" });
+        res.render("products/index", { product, category: "Our", title: "Products" });
     }
 });
 
@@ -52,7 +52,7 @@ app.post("/products", async (req, res) => {
 
 //make a new product
 app.get("/products/new", (req, res) => {
-    res.render("products/create", { categories });
+    res.render("products/create", { categories, title: "Create Product" });
 });
 
 //viewing details
@@ -60,7 +60,7 @@ app.get("/products/:id", async (req, res) => {
     const { id } = req.params;
     const findProduct = await Product.findById(id);
 
-    res.render("products/find", { findProduct });
+    res.render("products/find", { findProduct, title: "Search" });
 });
 
 //updating a product
@@ -68,7 +68,7 @@ app.get("/products/:id/edit", async (req, res) => {
     const { id } = req.params;
     const findProduct = await Product.findById(id);
 
-    res.render("products/edit", { findProduct, categories });
+    res.render("products/edit", { findProduct, categories, title: "Edit Product" });
 });
 
 //display updated product
