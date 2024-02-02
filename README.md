@@ -12,7 +12,7 @@ CRUD functionality fully implemented.
 Clone the project
 
 ```bash
-  git clone hhttps://github.com/AdishtJaglan/Products-Manager.git
+  git clone https://github.com/AdishtJaglan/Products-Manager.git
 ```
 
 Go to the project directory
