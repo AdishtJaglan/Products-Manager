@@ -5,28 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 
-<body>
-    <h1>Make New Product</h1>
+<body class="bg-light">
 
-    <form action="/products" method="POST">
-        <label for="name">Enter Product:</label>
-        <input type="text" name="name" id="name" placeholder="Enter Product">
-        <br>
-        <label for="price">Enter Price:</label>
-        <input type="number" name="price" id="price" placeholder="Enter Price">
-        <br>
-        <label for="category">Choose Category:</label>
-        <select name="category" id="category">
-            <% for(let p of categories){ %>
-                <option value="<%= p %>"><%= p %></option>
-            <% } %>
-        </select>
-        <br>
-        <button>Create</button>
-    </form>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Make New Product</h1>
+
+        <form action="/products" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label">Enter Product:</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Product" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Enter Price:</label>
+                <input type="number" name="price" id="price" class="form-control" placeholder="Enter Price" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="category" class="form-label">Choose Category:</label>
+                <select name="category" id="category" class="form-select" required>
+                    <% for(let p of categories){ %>
+                        <option value="<%= p %>"><%= p %></option>
+                    <% } %>
+                </select>
+            </div>
+
+            <button class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
